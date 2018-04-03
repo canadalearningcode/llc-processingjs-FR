@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mon premier projet ProcessingJS</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="monProjetProcessing"></canvas>
+
+
+
+<script src="processing.min.js"></script>
+<script>
+
+function sketchProc(processing) {
+	var largeur = 5;
+	var hauteur = 5;
+	var mesDonnées = processing.loadStrings('données.txt')
+	var donnéesMailChimp = mesDonnées[0].split(',')
+	var étiquettes = ['Réceptions', 'Retours', 'Ouvertures', 'Clics', 'Désabonnements']
+	console.log(donnéesMailChimp);
+
+	function overCircle(CenterX, CenterY, diameter) {
+	  var disX = CenterX - processing.mouseX;
+	  var disY = CenterY - processing.mouseY;
+	  if(Math.sqrt(Math.pow(disX, 2) + Math.pow(disY, 2)) < diameter/2 ) {
+	    return true;
+	  } else {
+	    return false;
+	  }
+	}
+
+	processing.setup = function() {
+		//Le code des fonctions de base va ici.
+		processing.size(700,500);
+		processing.background(0,0,0);
+	}
+
+	processing.draw = function() {
+		//Le code des éléments à dessiner va ici.
+		processing.background(0,0,0);
+		var onBouge = 75;
+		 for (var i = 0; i < donnéesMailChimp.length; i++) {
+		 	if (overCircle(onBouge, 100, donnéesMailChimp[i])) {
+		 		processing.stroke(255,0,0);
+		 	} else {
+		 		processing.stroke(255,255,255);
+		 	}
+		 	processing.noFill();
+		 	processing.ellipse(onBouge, 100, donnéesMailChimp[i], donnéesMailChimp[i]);
+		 	processing.fill(255,255,255);
+		 	processing.text(étiquettes[i], onBouge - 25, 200);
+		 	onBouge = onBouge + 130;
+		 }
+	};
+}
+	
+	var canevas = document.getElementById("monProjetProcessing");
+	// Associe la fonction sketchProc au canevas
+	var processingInstance = new Processing(canevas, sketchProc);
+
+</script>
+
+</body>
+</html>

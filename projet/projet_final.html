@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Mon premier projet ProcessingJS</title>
+</head>
+<body>
+
+	<canvas id="monProjetProcessing"></canvas>
+	<script src="processing.min.js"></script>
+
+	<script>
+
+		function sketchProc(processing) {
+			var mesDonnées = processing.loadStrings('données.txt')
+		  	var donnéesMailChimp = mesDonnées[0].split(',')
+		  	console.log(donnéesMailChimp);
+
+			function overCircle(CenterX, CenterY, diameter) {
+			  var disX = CenterX - processing.mouseX;
+			  var disY = CenterY - processing.mouseY;
+			  if(Math.sqrt(Math.pow(disX, 2) + Math.pow(disY, 2)) < diameter/2 ) {
+			    return true;
+			  } else {
+			    return false;
+			  }
+			}
+			processing.setup = function() {
+				//Mise en place des fonctions de base
+				processing.size(900,500);
+				processing.background(0,0,0);
+		   };
+		   processing.draw = function() {
+		   		//Fonctions de dessin
+		  		var onBouge = 100;
+		   		for (var i = 0; i < donnéesMailChimp.length; i++) {
+				    if (overCircle(onBouge, 100, donnéesMailChimp[i])) {
+					  processing.stroke(255,0,0);
+					} else {
+					  processing.stroke(255,255,255);
+					}
+					processing.noFill();
+				    processing.ellipse(onBouge, 100, donnéesMailChimp[i], donnéesMailChimp[i]);
+	   				onBouge = onBouge + 130;
+   				};
+
+
+
+		};
+ 		
+ 		};
+ 		var canevas = document.getElementById("monProjetProcessing");
+		var processingInstance = new Processing(canevas, sketchProc);
+	</script>
+
+</body>
+</html>
