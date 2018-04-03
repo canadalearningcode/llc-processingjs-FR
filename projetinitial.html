@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>Mon premier projet ProcessingJS</title>
+</head>
+<body>
+
+	<canvas id="monProjetProcessing"></canvas>
+	<script src="processing.min.js"></script>
+
+	<script>
+		var largeur = 10;
+		var hauteur = 20;
+		var valeurVert = 0;
+		function sketchProc(processing) {
+			processing.setup = function() {
+				//Le code des fonctions de base va ici.
+				processing.size(700,500);
+				processing.background(15,200,80);
+		   };
+		   processing.draw = function() {
+				processing.background(15,valeurVert,80);
+
+				if (processing.mouseX > 10 && processing.mouseX < (largeur + 10) && processing.mouseY > 20 && processing.mouseY < (hauteur + 20)) {
+				  processing.fill(255,0,0);
+				} else {
+				  processing.fill(0,0,255);
+				}
+				
+				processing.rect(10,20,largeur,hauteur);
+				processing.fill(0,255,0);
+				 processing.ellipse(processing.mouseX, processing.mouseY, 25, 25);
+
+				if (hauteur >= 480) {
+  					console.log('Fini');
+				} else {
+					largeur = largeur + 0.5;
+					hauteur = hauteur + 0.8;
+					valeurVert = valeurVert + 0.8;
+				}
+
+		   };
+
+		};
+ 		
+ 		var canevas = document.getElementById("monProjetProcessing");
+		var processingInstance = new Processing(canevas, sketchProc);
+	</script>
+
+</body>
+</html>
