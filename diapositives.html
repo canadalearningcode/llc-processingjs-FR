@@ -114,7 +114,7 @@
     <section class="slide" data-markdown>
       <script type="text/template">
         # Visualisation des données
-		    
+
         Quand vous représentez des données complexes, rappelez-vous que les visualisations les plus simples sont parfois les plus évocatrices. L'objectif est de représenter les données en petits morceaux faciles à digérer.
 
       </script>
@@ -504,10 +504,10 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
         var fonctionne = "La valeur de cette chaîne est parfaitement valide!";
         ```
 
-        Sinon, vous pouvez *éviter* le problème en utilisant une barre oblique inversée.
+        Sinon, vous pouvez *éviter* le problème en utilisant une barre oblique inversée devant le caractère problématique.
 
         ```javascript
-        var fonctionneAussi = 'La valeur de cette chaîne n\'est pas valide!';
+        var fonctionneAussi = 'La valeur de cette chaîne\ n'est pas valide!';
         ```
 
         > Essayez d'entrer chaque ligne dans la console pour vérifier s'il y a des erreurs.
@@ -1013,7 +1013,7 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
     <section class="slide" data-markdown>
       #Un premier dessin
 
-      Notre fonction « draw() » étant bien en place, nous pouvons commencer à ajouter des commandes pour dessiner sur le canevas. Ajoutons la méthode « rect() » directement sous le commentaire. 
+      Notre fonction « draw() » étant bien en place, nous pouvons commencer à ajouter des commandes pour dessiner sur le canevas. Ajoutons la méthode « rect() » directement sous le commentaire.
 
       ```
       function sketchProc(processing) {
@@ -1047,9 +1047,9 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
         ```
         var processingInstance = new Processing(canevas, sketchProc);
         ```
-        Ce code exécute une nouvelle instance (programme) Processing et lui envoie deux choses : notre canevas et le nom de la fonction gérant son comportement. 
+        Ce code exécute une nouvelle instance (programme) Processing et lui envoie deux choses : notre canevas et le nom de la fonction gérant son comportement.
 
-        Cela nous ramène en haut de la fonction sketchProc, où se trouvent les fonctions de base : 
+        Cela nous ramène en haut de la fonction sketchProc, où se trouvent les fonctions de base :
 
         ```javascript
         function sketchProc(processing) {
@@ -1072,10 +1072,10 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
       <script type="text/template">
         #setup() et draw()
 
-        Ces deux fonctions sont parfois confondantes. D'emblée, « setup() » ne s'exécute qu'une fois. La fonction s'occupe du code de base et définit nos préférences globales, la taille du canevas et la couleur de l'arrière-plan. En gros, l'« état initial » se trouve dans la fonction « setup() ». 
+        Ces deux fonctions sont parfois confondantes. D'emblée, « setup() » ne s'exécute qu'une fois. La fonction s'occupe du code de base et définit nos préférences globales, la taille du canevas et la couleur de l'arrière-plan. En gros, l'« état initial » se trouve dans la fonction « setup() ».
 
         La fonction « draw() » comprend tout ce qui ce trouve par-dessus l'état initial. Dans notre cas, il s'agit du dessin d'un rectangle par-dessus l'arrière-plan du canevas.
-  
+
         ```
         function sketchProc(processing) {
             processing.setup = function() {
@@ -1088,7 +1088,7 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
             };
           }
         ```
-        
+
       </script>
     </section>
 
@@ -1096,30 +1096,30 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
       <script type="text/template">
         #Coordonnées
 
-        Plusieurs éléments que nous dessinerons avec Processing utilisent un système de coordonnées pour indiquer leur emplacement sur le canevas. Par exemple, la méthode « rect() » des diapositives précédentes fait appel à des coordonnées. 
+        Plusieurs éléments que nous dessinerons avec Processing utilisent un système de coordonnées pour indiquer leur emplacement sur le canevas. Par exemple, la méthode « rect() » des diapositives précédentes fait appel à des coordonnées.
 
         ```
           processing.rect(10,20,130,260);
         ```
 
-        Ces coordonnées sont des valeurs x et y suivies de valeurs de largeur et de hauteur. Alors, le coin droit supérieur du rectangle se trouve à 10 pixels du bord gauche du canevas (la valeur x) et à 20 pixels du haut du canevas (la valeur y). 
+        Ces coordonnées sont des valeurs x et y suivies de valeurs de largeur et de hauteur. Alors, le coin droit supérieur du rectangle se trouve à 10 pixels du bord gauche du canevas (la valeur x) et à 20 pixels du haut du canevas (la valeur y).
 
         Ensuite, le coin inférieur droit du rectangle est à 130 pixels de la position initiale gauche et à 260 pixels de la position initiale droite.
 
-        On utilise aussi les coordonnées pour indiquer la position de l'ellipse : 
+        On utilise aussi les coordonnées pour indiquer la position de l'ellipse :
 
         ```
-         ellipse(50, 50, 25, 25); 
+         ellipse(50, 50, 25, 25);
         ```
-        
-        Le premier ensemble de coordonnées est le centre de l'ellipse (x et y) et le deuxième, la hauteur et la largeur de l'ellipse. 
+
+        Le premier ensemble de coordonnées est le centre de l'ellipse (x et y) et le deuxième, la hauteur et la largeur de l'ellipse.
 
       </script>
     </section>
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        #Exercice : Superposer les rectangles (~10 minutes) 
+        #Exercice : Superposer les rectangles (~10 minutes)
 
         Construisez quatre rectangles superposés de façon à ce qu'ils ressemblent à des dominos renversés Superposez-les à la verticale ou à l'horizontale, ou les deux, au choix.
 
@@ -1132,7 +1132,7 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
       <script type="text/template">
         #Corrigé de l'exercice
 
-        La solution ici est de tout simplement augmenter légèrement le nombre des coordonnées de début et de fin à chaque nouveau rectangle. 
+        La solution ici est de tout simplement augmenter légèrement le nombre des coordonnées de début et de fin à chaque nouveau rectangle.
 
         ```
         processing.rect(10,20,40,70);
@@ -1140,7 +1140,7 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
         processing.rect(50,20,80,70);
         processing.rect(70,20,100,70);
         ```
-        
+
         Il est aussi possible de les superposer dans les deux sens en augmentant légèrement les deux ensembles de paramètres.
 
         ```
@@ -1157,9 +1157,9 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
       <script type="text/template">
         #Ça se complique
 
-        Jusqu'à maintenant, nous savions en théorie que la fonction « draw() » se répète 60 fois par seconde, ce qui lui permet d'être utilisée pour animer nos visualisations. Toutefois, avec notre « rect() » statique, ce mouvement est difficile à voir. 
+        Jusqu'à maintenant, nous savions en théorie que la fonction « draw() » se répète 60 fois par seconde, ce qui lui permet d'être utilisée pour animer nos visualisations. Toutefois, avec notre « rect() » statique, ce mouvement est difficile à voir.
 
-        Mettons à jour notre fonction « draw() » grâce à nos connaissances du JavaScript afin de rendre notre rectangle dynamique. 
+        Mettons à jour notre fonction « draw() » grâce à nos connaissances du JavaScript afin de rendre notre rectangle dynamique.
       </script>
     </section>
 
@@ -1178,7 +1178,7 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
         2. Faites en sorte qu'il grossisse par lui-même.
 
         (La solution se trouve dans le dossier « RectangleQuiGrossit » des fichiers du cours.)
-        
+
 
       </script>
     </section>
@@ -1189,16 +1189,16 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
 
         Les variables ont beaucoup de potentiel : elles peuvent être mises à jour après avoir été déclarées.
 
-        En bas de la fonction « draw() », vous pouvez ajouter ceci : 
+        En bas de la fonction « draw() », vous pouvez ajouter ceci :
 
         ```
           largeur = largeur + 0.1;
           hauteur = hauteur + 0.2;
         ```
 
-        Vous pouvez modifier ces nombres pour changer la vitesse de croissance de votre rectangle. 
+        Vous pouvez modifier ces nombres pour changer la vitesse de croissance de votre rectangle.
 
-        
+
 
       </script>
     </section>
@@ -1207,13 +1207,13 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
       <script type="text/template">
         # Ordre des opérations
 
-        Revenons à l'ellipse que nous avons dessinée plus tôt. 
+        Revenons à l'ellipse que nous avons dessinée plus tôt.
 
         ```
         processing.ellipse(50, 50, 25, 25);
         ```
 
-        Ajoutez ce code après « rect() » à l'intérieur de la fonction « draw ». Le code de la fonction ressemblera à ceci : 
+        Ajoutez ce code après « rect() » à l'intérieur de la fonction « draw ». Le code de la fonction ressemblera à ceci :
 
         ```
         processing.rect(10,20,largeur,hauteur);
@@ -1222,9 +1222,9 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
         hauteur = hauteur + 0.2;
         ```
 
-        Maintenant, exécutez le programme. 
+        Maintenant, exécutez le programme.
 
-        Remarquez que l'ellipse se trouve toujours en haut du rectangle. Voici la raison : le programme s'exécute 60 fois par seconde, dessine le rectangle, puis dessine l'ellipse. Le code du rectangle vient avant celui de l'ellipse dans le script, ce qui explique pourquoi le rectangle se trouve en dessous de l'ellipse, dont le code vient par la suite. 
+        Remarquez que l'ellipse se trouve toujours en haut du rectangle. Voici la raison : le programme s'exécute 60 fois par seconde, dessine le rectangle, puis dessine l'ellipse. Le code du rectangle vient avant celui de l'ellipse dans le script, ce qui explique pourquoi le rectangle se trouve en dessous de l'ellipse, dont le code vient par la suite.
 
         Maintenant, renversez l'ordre du code de l'ellipse et celui de celui du rectangle et voyez le résultat.
       </script>
@@ -1234,7 +1234,7 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
       <script type="text/template">
         # Couleurs
 
-        La méthode « processing.fill() » nous permet de régler la couleur de remplissage (« fill ») de n'importe quel élément sur le canevas. Toutefois, dès que nous ajoutons la méthode « fill() », sa valeur affecte toutes les commandes « draw » qui suivent la méthode. Les couleurs s'écrivent selon les valeurs RVB (rouge vert bleu, « RGB » en anglais). 
+        La méthode « processing.fill() » nous permet de régler la couleur de remplissage (« fill ») de n'importe quel élément sur le canevas. Toutefois, dès que nous ajoutons la méthode « fill() », sa valeur affecte toutes les commandes « draw » qui suivent la méthode. Les couleurs s'écrivent selon les valeurs RVB (rouge vert bleu, « RGB » en anglais).
 
         ```
         processing.fill(255,0,0);
@@ -1242,7 +1242,7 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
         processing.ellipse(50, 50, 25, 25);
         ```
 
-        Le code ci-dessus donne une couleur rouge vif au rectangle et à l'ellipse. Qu'en est-il du code suivant? 
+        Le code ci-dessus donne une couleur rouge vif au rectangle et à l'ellipse. Qu'en est-il du code suivant?
 
         ```
         processing.fill(255,0,0);
@@ -1251,9 +1251,9 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
         processing.ellipse(50, 50, 25, 25);
         ```
 
-        Le rectangle est rouge et une ellipse verte y est superposée. 
+        Le rectangle est rouge et une ellipse verte y est superposée.
 
-        Pareillement, dans « setup() », il est possible de donner une valeur RVB à « processing.background() » afin que l'arrière-plan prenne une autre couleur que le gris par défaut, qui est plutôt moche. 
+        Pareillement, dans « setup() », il est possible de donner une valeur RVB à « processing.background() » afin que l'arrière-plan prenne une autre couleur que le gris par défaut, qui est plutôt moche.
 
         ```
         processing.background(15,200,80);
@@ -1272,15 +1272,15 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
           var positionYsouris = processing.mouseY;
         ```
 
-        Nous pouvons utiliser ces valeurs pour indiquer l'endroit où les formes devraient apparaître sur le canevas. Par exemple, si nous changeons le centre de notre cercle afin qu'il corresponde à la position de la souris, le cercle suivra les mouvements de notre souris. 
+        Nous pouvons utiliser ces valeurs pour indiquer l'endroit où les formes devraient apparaître sur le canevas. Par exemple, si nous changeons le centre de notre cercle afin qu'il corresponde à la position de la souris, le cercle suivra les mouvements de notre souris.
 
         Dans la fonction « draw() », modifiez l'ellipse de cette façon :
-        
+
         ```
           processing.ellipse(processing.mouseX, processing.mouseY, 25, 25);
         ```
-        
-        Maintenant, exécutons le programme. 
+
+        Maintenant, exécutons le programme.
 
       </script>
     </section>
@@ -1289,17 +1289,17 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
       <script type="text/template">
         #Hein?
 
-        Le cercle se répète partout sur la page! Ce n'est pas ce que nous voulions faire! 
+        Le cercle se répète partout sur la page! Ce n'est pas ce que nous voulions faire!
 
         La raison pour laquelle le cercle se répète est la suivante : Processing exécute la fonction « draw() » 60 fois par seconde sans effacer les cercles déjà dessinés sur le canevas. Pour ce faire, il faut dire au canevas de tout effacer explicitement. En ce moment, toutes les commandes « draw() » s'exécutent les unes après les autres et s'empilent.
 
-        Pour régler ce problème, il suffit d'ajouter cette ligne en haut de « draw() » : 
+        Pour régler ce problème, il suffit d'ajouter cette ligne en haut de « draw() » :
 
         ```
           processing.background(15,200,80);
         ```
 
-        Il est possible de réinitialiser l'arrière-plan du programme à chaque cycle, ce qui empêche les dessins de se superposer et nous permet d'avoir une visualisation épurée. 
+        Il est possible de réinitialiser l'arrière-plan du programme à chaque cycle, ce qui empêche les dessins de se superposer et nous permet d'avoir une visualisation épurée.
 
       </script>
     </section>
@@ -1307,7 +1307,7 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
     <section class="slide" data-markdown>
       <script type="text/template">
         # Expressions conditionnelles (« if ») dans Processing
-        
+
         Nous pouvons aussi insérer des expressions conditionnelles (« if ») à l'intérieur de la fonction « draw() ». En ajoutant ces expressions conditionnelles, le programme testera le respect des conditions 60 fois par seconde, ce qui nous permettra de définir une taille maximale pour notre rectangle.
 
 
@@ -1329,11 +1329,11 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
       <script type="text/template">
         #Expressions conditionnelles et comportement
 
-        Il est aussi possible d'utiliser des expressions conditionnelles pour vérifier la position de la souris et définir le comportement du programme selon cette position. 
+        Il est aussi possible d'utiliser des expressions conditionnelles pour vérifier la position de la souris et définir le comportement du programme selon cette position.
 
-        Par exemple, nous pourrions vérifier si le cercle autour de la souris est à l'intérieur de la boîte et ainsi changer la couleur du cercle ou de la boîte selon la position. 
+        Par exemple, nous pourrions vérifier si le cercle autour de la souris est à l'intérieur de la boîte et ainsi changer la couleur du cercle ou de la boîte selon la position.
 
-        Cette longue liste de conditions (quatre conditions, une pour chaque côté du carré) vérifie si le pointeur de la souris se trouve à l'intérieur du rectangle. 
+        Cette longue liste de conditions (quatre conditions, une pour chaque côté du carré) vérifie si le pointeur de la souris se trouve à l'intérieur du rectangle.
 
         ```
         if (processing.mouseX > 10 && processing.mouseX < (largeur + 10) && processing.mouseY > 20 && processing.mouseY < (hauteur + 20)) {
@@ -1351,15 +1351,15 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        #Exercice : de bonnes idées... à emboîter (~15 minutes) 
+        #Exercice : de bonnes idées... à emboîter (~15 minutes)
 
-        Poursuivons sur cette lancée : si nous faisions apparaître un cercle là où se trouve la souris et que ce cercle suivait la souris au moment où elle entrait dans un rectangle? 
+        Poursuivons sur cette lancée : si nous faisions apparaître un cercle là où se trouve la souris et que ce cercle suivait la souris au moment où elle entrait dans un rectangle?
 
-        1. Créez deux rectangles. 
+        1. Créez deux rectangles.
         2. Changez la couleur de remplissage (« fill ») des rectangles au moment où la souris entre dans ceux-ci.
-        3. Faites apparaître un cercle sur la souris quand la souris entre dans un rectangle. 
+        3. Faites apparaître un cercle sur la souris quand la souris entre dans un rectangle.
 
-        Défi supplémentaire : Et si nos cercles changeaient de taille selon leur distance dans le rectangle? 
+        Défi supplémentaire : Et si nos cercles changeaient de taille selon leur distance dans le rectangle?
 
       </script>
     </section>
@@ -1409,11 +1409,11 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
 
         ```
         25 + (processing.mouseY / 3)
-        ``` 
+        ```
 
-        25 est notre valeur de base, c'est-à-dire, la valeur (taille) la plus petite de notre cercle. Nous ajoutons « mouseY » à la formule ainsi que / 3, qui n'est là que pour réduire la différence. Changez la formule et voyez le résultat. 
+        25 est notre valeur de base, c'est-à-dire, la valeur (taille) la plus petite de notre cercle. Nous ajoutons « mouseY » à la formule ainsi que / 3, qui n'est là que pour réduire la différence. Changez la formule et voyez le résultat.
 
-        La solution complète : 
+        La solution complète :
 
 
       ```
@@ -1451,8 +1451,8 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
     <section class="slide" data-markdown>
       <script type="text/template">
         # Mailchimp
-        
-        Ouvrez le dossier « projet » dans les fichiers du cours. 
+
+        Ouvrez le dossier « projet » dans les fichiers du cours.
 
         Ouvrez « données.txt ».
 
@@ -1460,7 +1460,7 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
 
         Les cinq numéros, qui constituent un simple rapport Mailchimp, font référence à des réceptions, à des retours, à des ouvertures, à des clics et à des désabonnements.
 
-        Remarque : Il est conseillé de travailler sur ce projet dans le navigateur Firefox. 
+        Remarque : Il est conseillé de travailler sur ce projet dans le navigateur Firefox.
       </script>
     </section>
 
@@ -1472,7 +1472,7 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
 
         Nous ne voulons pas faire cette action chaque fois que la fonction « draw() » est exécutée (60 fois par seconde). Il est préférable que la méthode s'exécute seulement au début du programme afin d'éviter de perdre du temps à lire des données constamment.
 
-        Pour y arriver, nous mettrons ce code avant même d'exécuter la fonction « setup() »  
+        Pour y arriver, nous mettrons ce code avant même d'exécuter la fonction « setup() »
 
         ```
           var mesDonnées = processing.loadStrings('données.txt')
@@ -1480,11 +1480,11 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
           console.log(donnéesMailChimp);
         ```
 
-        En fait, ce code est un ensemble d'étapes. La première étape est la collecte de données à partir du fichier texte. La deuxième étape consiste à séparer ces données et les mettre dans un tableau afin de traiter chaque valeur séparément. 
+        En fait, ce code est un ensemble d'étapes. La première étape est la collecte de données à partir du fichier texte. La deuxième étape consiste à séparer ces données et les mettre dans un tableau afin de traiter chaque valeur séparément.
 
         La fonction « split() » nous permet de séparer les données selon un caractère de séparation donné, la virgule dans ce cas-ci.
 
-        À la fin du code, la méthode « console.log() » nous permet de voir la liste de données présentée en un tableau bien clair. 
+        À la fin du code, la méthode « console.log() » nous permet de voir la liste de données présentée en un tableau bien clair.
 
       </script>
     </section>
@@ -1511,7 +1511,7 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
       <script type="text/template">
         #Boucler les données
 
-         Comme vu précédemment, nous pouvons mettre en place une fonction « draw() » qui se répétera 60 fois par secondes dans le but de dessiner nos données. 
+         Comme vu précédemment, nous pouvons mettre en place une fonction « draw() » qui se répétera 60 fois par secondes dans le but de dessiner nos données.
 
         ```
         processing.draw = function() {
@@ -1534,9 +1534,9 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
       <script type="text/template">
         #Une seconde...
 
-        Pourquoi ne pas les rendre creux afin que nous puissions voir à l'intérieur? Pourquoi ne pas les éloigner un peu les uns des autres? 
+        Pourquoi ne pas les rendre creux afin que nous puissions voir à l'intérieur? Pourquoi ne pas les éloigner un peu les uns des autres?
 
-        Oui, c'est une bonne idée. 
+        Oui, c'est une bonne idée.
       </script>
     </section>
 
@@ -1544,9 +1544,9 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
       <script type="text/template">
         #Couleur du contour
 
-        Nous avons déjà vu comment modifier la couleur de remplissage (« fill »). Maintenant, nous verrons comment modifier la couleur du contour de chaque forme, c'est-à-dire la fine ligne autour du cercle (« stroke »). Il est aussi possible de changer la largeur de cette ligne. 
+        Nous avons déjà vu comment modifier la couleur de remplissage (« fill »). Maintenant, nous verrons comment modifier la couleur du contour de chaque forme, c'est-à-dire la fine ligne autour du cercle (« stroke »). Il est aussi possible de changer la largeur de cette ligne.
 
-        Voici les valeurs de contour : 
+        Voici les valeurs de contour :
 
         ```
         processing.stroke(255,255,255);
@@ -1562,7 +1562,7 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
       <script type="text/template">
         #On bouge
 
-        Notre but est que les cercles ne soient pas superposés, mais bien les uns à côté des autres. En d'autres mots, nos cercles sont de bons voisins, mais pas de bons colocs. 
+        Notre but est que les cercles ne soient pas superposés, mais bien les uns à côté des autres. En d'autres mots, nos cercles sont de bons voisins, mais pas de bons colocs.
 
         Pour ce faire, nous changerons le centre de chaque cercle individuellement en ajoutant une variable supplémentaire. Avant que la boucle commence, c'est-à-dire dans la fonction « draw() », mais à l'extérieur de la boucle qui dessine les cercles, nous ajouterons cette variable :
 
@@ -1570,13 +1570,13 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
         var onBouge = 75;
         ```
 
-        Ensuite, nous changerons la commande « ellipse() » en y ajoutant cette variable sur l'axe des x (l'axe horizontal) : 
+        Ensuite, nous changerons la commande « ellipse() » en y ajoutant cette variable sur l'axe des x (l'axe horizontal) :
 
         ```
         processing.ellipse(onBouge, 100, donnéesMailChimp[i], donnéesMailChimp[i]);
         ```
 
-        Puis, en bas de la boucle, nous changerons la variable qui affectera le prochain cercle dessiné : 
+        Puis, en bas de la boucle, nous changerons la variable qui affectera le prochain cercle dessiné :
 
         ```
         onBouge = onBouge + 130;
@@ -1589,7 +1589,7 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
       <script type="text/template">
         #Tout ensemble
 
-        Notre fonction « draw() » complète devrait ressembler à ceci : 
+        Notre fonction « draw() » complète devrait ressembler à ceci :
 
         ```
         processing.draw = function() {
@@ -1613,7 +1613,7 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
 
         Bien qu'il y ait plusieurs cercles sur notre page, ne serait-il pas une bonne idée qu'ils affichent quelque chose quand notre souris les survole?
 
-        Oui! 
+        Oui!
 
         Cette étape est un peu complexe. En plaçant la fonction suivante juste en haut de la fonction « setup() », mais à l'intérieur de la fonction « sketchProc() », nous pourrons tester si le pointeur de la souris se trouve dans les cercles.
 
@@ -1662,7 +1662,7 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
 
         Il est très facile de mettre du texte sur nos graphiques avec Processing. Il y a une méthode pratique, « text() », qui s'occupe de tout le texte qui s'affichera sur les graphiques, y compris le positionnement.
 
-        Pour l'utiliser, ajoutez ces deux lignes avant de régler la variable « onBouge », mais après l'ellipse : 
+        Pour l'utiliser, ajoutez ces deux lignes avant de régler la variable « onBouge », mais après l'ellipse :
 
         ```
         processing.fill(255,255,255);
@@ -1681,18 +1681,18 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
         Plutôt que d'afficher « Test du texte », peut-être serait-il mieux si le texte décrivait le cercle. Pour ce faire, nous aurons besoin d'un tableau d'étiquettes suivant le même ordre que les données du cercle.
 
         Si les données de notre cercle sont :
-        
+
         ```
         231,85,87,16,2
         ```
 
-        Alors, nos étiquettes devront correspondre à : 
+        Alors, nos étiquettes devront correspondre à :
 
         ```
         réceptions, retours, ouvertures, clics, désabonnements
         ```
 
-        En haut de la fonction « sketchProc() », où nous avons mis en place l'importation des données, ajoutez cette ligne pour créer les étiquettes : 
+        En haut de la fonction « sketchProc() », où nous avons mis en place l'importation des données, ajoutez cette ligne pour créer les étiquettes :
 
         ```
         var étiquettes = ['Réceptions', 'Retours', 'Ouvertures', 'Clics', 'Désabonnements']
@@ -1704,17 +1704,17 @@ var échec = 'La valeur de cette chaîne n'est pas valide!';
       <script type="text/template">
         #Ajouter les bonnes étiquettes
 
-        Maintenant, plutôt que d'afficher « Test du texte », nous aurons des étiquettes. Modifions la commande « text() » comme ceci : 
+        Maintenant, plutôt que d'afficher « Test du texte », nous aurons des étiquettes. Modifions la commande « text() » comme ceci :
 
         ```
         processing.text(étiquettes[i], onBouge - 25, 200);
 
         ```
-        « étiquettes[i] » réfère au tableau d'étiquettes en haut du programme, tandis que le « i » réfère à la boucle dans la construction du cercle. 
+        « étiquettes[i] » réfère au tableau d'étiquettes en haut du programme, tandis que le « i » réfère à la boucle dans la construction du cercle.
 
-        Alors, quand le programme construit son premier cercle, il affiche la première étiquette. Quand il construit le deuxième cercle, il affiche la deuxième étiquette, et ainsi de suite. 
+        Alors, quand le programme construit son premier cercle, il affiche la première étiquette. Quand il construit le deuxième cercle, il affiche la deuxième étiquette, et ainsi de suite.
 
-        On aime les boucles. 
+        On aime les boucles.
 
       </script>
     </section>
