@@ -25,9 +25,9 @@ function sketchProc(processing) {
 
 	processing.draw = function() {
 		//Le code des éléments à dessiner va ici.
-		
+
 		processing.background(15,200,80);
-		
+
 		if (processing.mouseX > 10 && processing.mouseX < (largeur + 10) && processing.mouseY > 20 && processing.mouseY < (hauteur + 20)) {
 			processing.fill(255,0,0);
 			processing.rect(10,20,largeur,hauteur);
@@ -37,9 +37,9 @@ function sketchProc(processing) {
 			processing.fill(0,0,255);
 			processing.rect(10,20,largeur,hauteur);
 		}
-		
 
-		if (processing.mouseX > 10 && processing.mouseX < (wide + 10) && processing.mouseY > 80 && processing.mouseY < (hauteur + 80)) {
+
+		if (processing.mouseX > 10 && processing.mouseX < (largeur + 10) && processing.mouseY > 80 && processing.mouseY < (hauteur + 80)) {
 			processing.fill(0,255,0);
 			processing.rect(10,80,largeur,hauteur);
 			processing.fill(255,0,0);
@@ -51,7 +51,7 @@ function sketchProc(processing) {
 
 	};
 }
-	
+
 	var canevas = document.getElementById("monProjetProcessing");
 	// Associe la fonction sketchProc au canevas
 	var processingInstance = new Processing(canevas, sketchProc);
